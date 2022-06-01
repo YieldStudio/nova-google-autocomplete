@@ -1,0 +1,31 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production",
+        "nova:install": "npm --prefix='./vendor/laravel/nova' ci",
+        "check-format": "prettier --list-different 'resources/**/*.{css,js,vue}'",
+        "format": "prettier --write 'resources/js/**/*.{css,js,vue}'",
+        "lint": "eslint resources/js --fix --ext js,vue"
+    },
+    "devDependencies": {
+        "@vue/compiler-sfc": "^3.2.36",
+        "eslint": "^4.19.1",
+        "eslint-config-prettier": "^2.9.0",
+        "eslint-plugin-vue": "^4.4.0",
+        "laravel-mix": "^6.0.41",
+        "path": "^0.12.7",
+        "postcss": "^8.3.11",
+        "prettier": "^1.14.2",
+        "vue-loader": "^16.8.3"
+    },
+    "dependencies": {
+        "inputmask": "^4.0.3",
+        "vue-google-autocomplete": "^1.1.2"
+    }
+}
