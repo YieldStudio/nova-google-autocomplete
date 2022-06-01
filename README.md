@@ -1,7 +1,7 @@
 # Nova Google AutoComplete Field Package
 
-[![Latest Version](https://img.shields.io/github/release/yieldstudio/nova-google-autocomplete?style=flat-square)](https://github.com/yieldstudio/nove-google-autocomplete/releases)
-[![Total Downloads](https://img.shields.io/packagist/dt/yieldstudio/nova-google-autocomplete?style=flat-square)](https://packagist.org/packages/yieldstudio/nove-google-autocomplete)
+[![Latest Version](https://img.shields.io/github/release/yieldstudio/nova-google-autocomplete?style=flat-square)](https://github.com/yieldstudio/nova-google-autocomplete/releases)
+[![Total Downloads](https://img.shields.io/packagist/dt/yieldstudio/nova-google-autocomplete?style=flat-square)](https://packagist.org/packages/yieldstudio/nova-google-autocomplete)
 
 This field allows you to work with Google Places API to autocomplete on user input and get the full real address with all the metadata (like latitude and longitude).
 
