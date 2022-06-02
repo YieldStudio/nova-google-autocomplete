@@ -125,7 +125,7 @@ GoogleAutocomplete::make('Address')->placeType('establishment');
 
 If you want this package in your language, just create a json lang file in your `resources/lang/vendor/nova-google-autocomplete` folder.
 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
