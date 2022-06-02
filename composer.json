@@ -2,6 +2,7 @@
     "name": "yieldstudio/nova-google-autocomplete",
     "description": "A Laravel Nova Google autocomplete field.",
     "keywords": [
+        "yieldstudio",
         "laravel",
         "nova",
         "google",
@@ -14,13 +15,15 @@
         {
             "name": "Emiliano Tisato",
             "email": "emilianotisato@gmail.com",
+            "homepage": "https://github.com/emilianotisato",
             "role": "Creator"
         },
         {
-            "name": "Yield Studio",
-            "email": "contact@yieldstudio.fr",
+            "name": "James Hemery",
+            "email": "james@yieldstudio.fr",
+            "homepage": "https://yieldstudio.fr",
             "role": "Fork maintener"
-        }
+        },
     ],
     "repositories": [
         {
