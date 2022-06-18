@@ -4,7 +4,7 @@ namespace YieldStudio\NovaGoogleAutocomplete;
 
 use Laravel\Nova\Fields\Text;
 
-final class AddressMetadata extends Text
+class AddressMetadata extends Text
 {
     public $component = 'address-metadata';
 

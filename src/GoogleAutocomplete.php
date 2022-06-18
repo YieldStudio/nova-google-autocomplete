@@ -4,7 +4,7 @@ namespace YieldStudio\NovaGoogleAutocomplete;
 
 use Laravel\Nova\Fields\Field;
 
-final class GoogleAutocomplete extends Field
+class GoogleAutocomplete extends Field
 {
     public $component = 'google-autocomplete';
 

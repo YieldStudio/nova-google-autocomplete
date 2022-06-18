@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
 
-final class FieldServiceProvider extends ServiceProvider
+class FieldServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
