@@ -121,7 +121,7 @@ use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
 GoogleAutocomplete::make('Address')->placeType('establishment');
 ```
 
-## Capturing JSON response
+### Capturing JSON response
 
 If you want to capture the entire response as a JSON object, you can use the `fromResponse()` helper instead of using `fromValues()`.
 This helper will capture the entire response containing all the requested values as a JSON string.
