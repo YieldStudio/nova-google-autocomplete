@@ -13,9 +13,15 @@ class AddressMetadata extends Text
         parent::__construct($name, $attribute, $resolveCallback);
 
         $this->withMeta([
+            'captureResponse' => false,
             'disabled' => false,
             'invisible' => false,
         ]);
+    }
+
+    public function fromResponse(bool $captureResponse = true): self
+    {
+        return $this->withMeta(['captureResponse' => $captureResponse]);
     }
 
     public function fromValue(string $addressValue): self
