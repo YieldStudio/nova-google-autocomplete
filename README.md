@@ -82,7 +82,7 @@ use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
 GoogleAutocomplete::make('Address')->withValues(['latitude', 'longitude']),
 
 AddressMetadata::make('coordinates')->fromValue('{{latitude}}, {{longitude}}'),
-```  
+```
 
 So the value that would be rendered within the coordinates input would be something like:
 
@@ -117,8 +117,38 @@ use YieldStudio\NovaGoogleAutocomplete\AddressMetadata;
 use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
 
 // This autocomplete field will return results that match a business name instead of address.
-// All the same address data is still stored.  
+// All the same address data is still stored.
 GoogleAutocomplete::make('Address')->placeType('establishment');
+```
+
+## Capturing JSON response
+
+If you want to capture the entire response as a JSON object, you can use the `fromResponse()` helper instead of using `fromValues()`.
+This helper will capture the entire response containing all the requested values as a JSON string.
+
+```php
+// Autocompelte field
+GoogleAutocomplete::make('Location')
+    ->countries('BE')
+    ->withValues(['latitude', 'longitude', 'street_number', 'route', 'locality', 'administrative_area_level_1', 'country', 'postal_code'])
+    ->withMeta(['asJson' => true]),
+
+// Field that will capture de response object
+AddressMetadata::make('Address')
+    ->fromResponse()
+    ->invisible()
+    ->onlyOnForms()
+    ->resolveUsing(function () {
+        return json_encode(optional($this->resource)->address);
+    })
+    ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
+        if ($request->exists($requestAttribute)) {
+            $model->{$attribute} = json_decode($request[$requestAttribute], true);
+        }
+    }),
+
+// Display the response object in a Code field
+Code::make('Address')->json()->onlyOnDetail(),
 ```
 
 ## Localization
