@@ -127,7 +127,7 @@ If you want to capture the entire response as a JSON object, you can use the `fr
 This helper will capture the entire response containing all the requested values as a JSON string.
 
 ```php
-// Autocompelte field
+// Autocomplete field
 GoogleAutocomplete::make('Location')
     ->countries('BE')
     ->withValues(['latitude', 'longitude', 'street_number', 'route', 'locality', 'administrative_area_level_1', 'country', 'postal_code'])
