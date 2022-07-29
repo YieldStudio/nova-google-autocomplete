@@ -19,9 +19,18 @@ class AddressMetadata extends Text
         ]);
     }
 
-    public function fromResponse(bool $captureResponse = true): self
+    public function fromResponse(): self
     {
-        return $this->withMeta(['captureResponse' => $captureResponse]);
+        return $this
+            ->withMeta(['captureResponse' => true])
+            ->resolveUsing(function () {
+                return json_encode(optional($this->resource)->address);
+            })
+            ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
+                if ($request->exists($requestAttribute)) {
+                    $model->{$attribute} = json_decode($request[$requestAttribute], true);
+                }
+            });
     }
 
     public function fromValue(string $addressValue): self
