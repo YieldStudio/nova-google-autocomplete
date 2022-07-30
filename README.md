@@ -129,8 +129,7 @@ If you want to capture all requested values as a JSON object, you can use the `f
 // Autocomplete field
 GoogleAutocomplete::make('Location')
     ->countries('BE')
-    ->withValues(['latitude', 'longitude', 'street_number', 'route', 'locality', 'administrative_area_level_1', 'country', 'postal_code'])
-    ->withMeta(['asJson' => true]),
+    ->withValues(['latitude', 'longitude', 'street_number', 'route', 'locality', 'administrative_area_level_1', 'country', 'postal_code']),
 
 // Field that will capture de response object
 AddressMetadata::make('Address')
