@@ -13,18 +13,18 @@ class AddressMetadata extends Text
         parent::__construct($name, $attribute, $resolveCallback);
 
         $this->withMeta([
-            'captureResponse' => false,
+            'asJson' => false,
             'disabled' => false,
             'invisible' => false,
         ]);
     }
 
-    public function fromResponse(): self
+    public function fromValuesAsJson(): self
     {
         return $this
-            ->withMeta(['captureResponse' => true])
-            ->resolveUsing(function () {
-                return json_encode(optional($this->resource)->address);
+            ->withMeta(['asJson' => true])
+            ->resolveUsing(function ($value) {
+                return json_encode($value);
             })
             ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
                 if ($request->exists($requestAttribute)) {
