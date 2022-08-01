@@ -27,7 +27,11 @@ export default {
     props: ['resourceName', 'resourceId', 'field'],
 
     mounted() {
-        if (this.field.addressValue.indexOf('{{') >= 0) {
+         if (this.field.asJson) {
+            Nova.$on('address-metadata-update', locationObject => {
+                this.value = JSON.stringify(locationObject);
+            });
+        } else if (this.field.addressValue.indexOf('{{') >= 0) {
             let bracketRegex = /\{\{.*?\}\}/g;
             let match;
             let addressParts = [];

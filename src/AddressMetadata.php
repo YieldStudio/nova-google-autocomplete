@@ -13,9 +13,24 @@ class AddressMetadata extends Text
         parent::__construct($name, $attribute, $resolveCallback);
 
         $this->withMeta([
+            'asJson' => false,
             'disabled' => false,
             'invisible' => false,
         ]);
+    }
+
+    public function fromValuesAsJson(): self
+    {
+        return $this
+            ->withMeta(['asJson' => true])
+            ->resolveUsing(function ($value) {
+                return json_encode($value);
+            })
+            ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
+                if ($request->exists($requestAttribute)) {
+                    $model->{$attribute} = json_decode($request[$requestAttribute], true);
+                }
+            });
     }
 
     public function fromValue(string $addressValue): self
