@@ -159,8 +159,9 @@ If you've found a bug regarding security please mail [contact@yieldstudio.fr](ma
 
 ## Credits
 
-- [James Hemery](https://github.com/jameshemery)
-- [Emiliano Tisato](https://github.com/emilianotisato)
+- [Emiliano Tisato](https://github.com/emilianotisato) - Original developer
+- [James Hemery](https://github.com/jameshemery) - Fork maintainer
+- [Simon Depelchin](https://github.com/emilianotisato) - Contributor
 
 ## License
 
