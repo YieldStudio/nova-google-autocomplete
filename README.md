@@ -133,17 +133,9 @@ GoogleAutocomplete::make('Location')
 
 // Field that will capture de response object
 AddressMetadata::make('Address')
-    ->fromResponse()
+    ->fromValuesAsJson()
     ->invisible()
-    ->onlyOnForms()
-    ->resolveUsing(function () {
-        return json_encode(optional($this->resource)->address);
-    })
-    ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
-        if ($request->exists($requestAttribute)) {
-            $model->{$attribute} = json_decode($request[$requestAttribute], true);
-        }
-    }),
+    ->onlyOnForms(),
 
 // Display the response object in a Code field
 Code::make('Address')->json()->onlyOnDetail(),
