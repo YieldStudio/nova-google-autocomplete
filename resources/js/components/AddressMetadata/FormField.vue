@@ -27,7 +27,7 @@ export default {
     props: ['resourceName', 'resourceId', 'field'],
 
     mounted() {
-         if (this.field.asJson) {
+        if (this.field.asJson) {
             Nova.$on('address-metadata-update', locationObject => {
                 this.value = JSON.stringify(locationObject);
             });
