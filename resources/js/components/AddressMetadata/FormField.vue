@@ -48,6 +48,10 @@ export default {
             } while (match !== null);
 
             Nova.$on('address-metadata-update', locationObject => {
+                if (this.checkIfFlexibleField(locationObject.attribute)) {
+                    return;
+                }
+
                 let addressValue = this.field.addressValue;
 
                 for (let i = 0; i < addressParts.length; i++) {
@@ -64,6 +68,10 @@ export default {
             });
         } else {
             Nova.$on('address-metadata-update', locationObject => {
+                if (this.checkIfFlexibleField(locationObject.attribute)) {
+                    return;
+                }
+
                 this.value = locationObject[this.field.addressValue];
             });
         }
@@ -77,6 +85,13 @@ export default {
         },
         handleChange(value) {
             this.value = value;
+        },
+        checkIfFlexibleField(attributeName) {
+            const flexibleFieldKey = this.field.attribute.match(/((.{16})__)/);
+
+            // if the flexible field key exists but doesn't match the first 16 characters
+            // of the location object attribute, return to not set the value on this field
+            return flexibleFieldKey && attributeName.indexOf(flexibleFieldKey[0]) === -1;
         },
     },
 };

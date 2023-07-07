@@ -67,7 +67,10 @@ export default {
                 }
             });
 
-            Nova.$emit('address-metadata-update', { ...retrievedAddress });
+            Nova.$emit('address-metadata-update', {
+                attribute: this.field.attribute,
+                ...retrievedAddress
+            });
         },
         setInitialValue() {
             this.value = this.field.value || '';
