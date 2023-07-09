@@ -69,7 +69,7 @@ export default {
 
             Nova.$emit('address-metadata-update', {
                 attribute: this.field.attribute,
-                ...retrievedAddress
+                ...retrievedAddress,
             });
         },
         setInitialValue() {
