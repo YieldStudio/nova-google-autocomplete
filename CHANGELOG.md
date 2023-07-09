@@ -4,6 +4,18 @@ All notable changes to `nova-google-autocomplete` will be documented in this fil
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 1.2.0 - 2023-07-09
+
+### What's Changed
+
+- Added compatibility with whitecube/nova-flexible-content by @beneverard in https://github.com/YieldStudio/nova-google-autocomplete/pull/6
+
+### New Contributors
+
+- @beneverard made their first contribution in https://github.com/YieldStudio/nova-google-autocomplete/pull/6
+
+**Full Changelog**: https://github.com/YieldStudio/nova-google-autocomplete/compare/1.1.0...1.2.0
+
 ## 1.1.0 - 2022-08-01
 
 ### What's Changed
