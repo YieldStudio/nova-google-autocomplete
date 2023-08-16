@@ -1,3 +1,5 @@
 {
-    "update_address": "Actualice la dirección si es necesario..."
+    "nga_current_address": "Valor actual: :address",
+    "nga_clear": "Suprima",
+    "nga_search": "Buscar una dirección"
 }

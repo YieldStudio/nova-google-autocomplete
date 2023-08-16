@@ -1,23 +1,31 @@
 <template>
-    <DefaultField :field="field">
+    <DefaultField
+        :field="field"
+        :errors="errors"
+        :show-help-text="showHelpText"
+        :full-width-content="fullWidthContent"
+    >
         <template #field>
-            <div class="form-group">
-                <vue-google-autocomplete
-                    ref="address"
-                    :id="field.attribute"
-                    class="w-full form-control form-input form-input-bordered"
-                    :class="errorClasses"
-                    :country="field.countries"
-                    :types="field.type"
-                    :placeholder="value.trim().length === 0 ? field.name : __('update_address')"
-                    v-model="value"
-                    v-on:keypress.enter.prevent=""
-                    v-on:placechanged="getAddressData"
-                />
+            <vue-google-autocomplete
+                ref="searchField"
+                :id="field.attribute"
+                class="w-full form-control form-input form-input-bordered"
+                :class="errorClasses"
+                :country="field.countries"
+                :types="field.type"
+                :placeholder="placeholder"
+                v-model="search"
+                v-on:keypress.enter.prevent=""
+                v-on:placechanged="getAddressData"
+            />
+            <div v-if="!field.dontStore && value && value.trim().length > 0">
+                <span class="inline-block mt-1 italic">{{
+                    __('nga_current_address', { address: value })
+                }}</span>
+                <button @click="clear" type="button" class="text-red-500 inline-block ml-2">
+                    {{ __('nga_clear') }}
+                </button>
             </div>
-            <p v-if="hasError" class="help-text error-text mt-2 text-danger">
-                {{ firstError }}
-            </p>
         </template>
     </DefaultField>
 </template>
@@ -30,16 +38,32 @@ export default {
     components: { VueGoogleAutocomplete },
     mixins: [FormField, HandlesValidationErrors],
     props: ['resourceName', 'resourceId', 'field'],
-
     data: function() {
         return {
-            address: '',
+            search: '',
+            value: '',
         };
     },
+    computed: {
+        placeholder() {
+            if (this.field.placeholder) {
+                return this.field.placeholder;
+            }
+
+            return this.__('nga_search');
+        },
+    },
     methods: {
+        clear() {
+            this.$refs.searchField.$refs.autocomplete.value = '';
+            this.value = '';
+            Nova.$emit('address-metadata-clear');
+        },
         getAddressData(addressData, placeResultData) {
             // Save current data address as a string
             this.handleChange(placeResultData.formatted_address);
+
+            this.$refs.searchField.$refs.autocomplete.value = '';
 
             const retrievedAddress = {};
 

@@ -28,6 +28,11 @@ class GoogleAutocomplete extends Field
         ]);
     }
 
+    public function dontStore(): self
+    {
+        return $this->fillUsing(fn () => null)->onlyOnForms()->withMeta(['dontStore' => true]);
+    }
+
     /**
      * Pass a place type
      * https://developers.google.com/places/supported_types#table3
