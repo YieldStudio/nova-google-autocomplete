@@ -4,6 +4,17 @@ All notable changes to `nova-google-autocomplete` will be documented in this fil
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 1.3.0 - 2023-08-16
+
+### What's Changed
+
+- Allow to change placeholder #8
+- Show helper text #8
+- Add a dontStore method to allow the formatted address not to be stored #8
+- Add preview of current address and ability to clear it (doesn't work when dontStore method is used) #8
+
+**Full Changelog**: https://github.com/YieldStudio/nova-google-autocomplete/compare/1.2.0...1.3.0
+
 ## 1.2.0 - 2023-07-09
 
 ### What's Changed
