@@ -19,22 +19,26 @@
                 v-on:placechanged="getAddressData"
             />
             <div v-if="!field.dontStore && value && value.trim().length > 0">
-                <span class="inline-block mt-1 italic">{{ __('nga_current_address', {address: value}) }}</span>
-                <button @click="clear" type="button" class="text-red-500 inline-block ml-2">{{ __('nga_clear') }}</button>
+                <span class="inline-block mt-1 italic">{{
+                    __('nga_current_address', { address: value })
+                }}</span>
+                <button @click="clear" type="button" class="text-red-500 inline-block ml-2">
+                    {{ __('nga_clear') }}
+                </button>
             </div>
         </template>
     </DefaultField>
 </template>
 
 <script>
-import {FormField, HandlesValidationErrors} from 'laravel-nova';
+import { FormField, HandlesValidationErrors } from 'laravel-nova';
 import VueGoogleAutocomplete from 'vue-google-autocomplete';
 
 export default {
-    components: {VueGoogleAutocomplete},
+    components: { VueGoogleAutocomplete },
     mixins: [FormField, HandlesValidationErrors],
     props: ['resourceName', 'resourceId', 'field'],
-    data: function () {
+    data: function() {
         return {
             search: '',
             value: '',
@@ -47,10 +51,10 @@ export default {
             }
 
             return this.__('nga_search');
-        }
+        },
     },
     methods: {
-        clear(){
+        clear() {
             this.$refs.searchField.$refs.autocomplete.value = '';
             this.value = '';
             Nova.$emit('address-metadata-clear');
