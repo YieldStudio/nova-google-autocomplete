@@ -71,6 +71,21 @@ AddressMetadata::make('long')->fromValue('longitude')->disabled(),
 AddressMetadata::make('long')->fromValue('longitude')->invisible(),
 ```
 
+By default, the formatted address will be stored on the property provided in the GoogleAutocomplete field. If you don't want to store it, you can use the `dontStore` method:
+
+
+```php
+use YieldStudio\NovaGoogleAutocomplete\AddressMetadata;
+use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
+
+// Formatted address will not be stored
+GoogleAutocomplete::make('Address')->withValues(['latitude', 'longitude'])->dontStore(),
+
+// This field will be stored
+AddressMetadata::make('lat')->fromValue('latitude'),
+AddressMetadata::make('long')->fromValue('longitude'),
+```
+
 ### Combine Values
 
 If you want to concatenate certain elements of the geocoded object that is returned by Google, using `{{` and `}}`, wrap the key like you would above; like so:

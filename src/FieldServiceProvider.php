@@ -27,7 +27,7 @@ class FieldServiceProvider extends ServiceProvider
         Nova::serving(function (ServingNova $event) {
             Nova::script('google-autocomplete', __DIR__ . '/../dist/js/field.js');
             Nova::remoteScript('https://maps.googleapis.com/maps/api/js?key='.config('nova-google-autocomplete.api_key').'&libraries=places');
-            Nova::translations(__DIR__ . '/../resources/lang/' . app()->getLocale() . '.json');
+            Nova::translations(resource_path('lang/vendor/nova-google-autocomplete/' . app()->getLocale() . '.json'));
         });
     }
 }

@@ -1,6 +1,11 @@
 <template>
     <div :class="{ invisible: field.invisible }">
-        <DefaultField :field="field">
+        <DefaultField
+            :field="field"
+            :errors="errors"
+            :show-help-text="showHelpText"
+            :full-width-content="fullWidthContent"
+        >
             <template #field>
                 <input
                     :id="field.name"
@@ -8,25 +13,25 @@
                     :disabled="field.disabled"
                     class="w-full form-control form-input form-input-bordered"
                     :class="errorClasses"
-                    :placeholder="field.name"
+                    :placeholder="field.placeholder"
                     v-model="value"
                 />
-                <p v-if="hasError" class="help-text error-text mt-2 text-danger">
-                    {{ firstError }}
-                </p>
             </template>
         </DefaultField>
     </div>
 </template>
 
 <script>
-import { FormField, HandlesValidationErrors } from 'laravel-nova';
+import {FormField, HandlesValidationErrors} from 'laravel-nova';
 
 export default {
     mixins: [FormField, HandlesValidationErrors],
     props: ['resourceName', 'resourceId', 'field'],
-
     mounted() {
+        Nova.$on('address-metadata-clear', () => {
+            this.value = '';
+        });
+
         if (this.field.asJson) {
             Nova.$on('address-metadata-update', locationObject => {
                 this.value = JSON.stringify(locationObject);
