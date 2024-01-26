@@ -20,7 +20,7 @@ class FieldServiceProvider extends ServiceProvider
             ], 'nova-google-autocomplete-config');
         }
 
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'nova-google-autocomplete');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'nova-google-autocomplete');
         $this->loadJsonTranslationsFrom(lang_path('/vendor/nova-google-autocomplete'));
 
         Nova::serving(function (ServingNova $event) {

@@ -158,7 +158,7 @@ Code::make('Address')->json()->onlyOnDetail(),
 
 ## Localization
 
-If you want this package in your language, just create a json lang file in your `resources/lang/vendor/nova-google-autocomplete` folder.
+If you want this package in your language, just create a json lang file in your `/lang/vendor/nova-google-autocomplete` folder.
 
 ## Changelog
 
