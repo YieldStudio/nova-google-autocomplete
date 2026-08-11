@@ -20,7 +20,7 @@
         "eslint-plugin-vue": "^4.4.0",
         "laravel-mix": "^6.0.41",
         "path": "^0.12.7",
-        "postcss": "^8.3.11",
+        "postcss": "^8.5.26",
         "prettier": "^1.14.2",
         "vue-loader": "^16.8.3"
     },
